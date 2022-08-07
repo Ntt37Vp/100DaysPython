@@ -8,7 +8,7 @@ print("Welcome to Py Password Generator")
 nr_letters = int(input("How many letters? "))
 nr_numbers = int(input("How many numbers? "))
 nr_symbols = int(input("How many symbols? "))
-
+# Easy version
 # password = ""
 # for char in range(1, nr_letters + 1):
 #     password += random.choice(letters)
