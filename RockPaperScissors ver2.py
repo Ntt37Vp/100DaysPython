@@ -54,7 +54,7 @@ while Games > 0:
     elif player1 == 1 and player2 == 0:
         print("YOU WIN.")
         player1_score += 1
-    elif player1 == 1 and player1 == 2:
+    elif player1 == 1 and player2 == 2:
         print("YOU LOSE.")
         player2_score += 1
     elif player1 == 2 and player2 == 1:
@@ -63,9 +63,9 @@ while Games > 0:
     elif player1 == 2 and player2 == 0:
         print("YOU LOSE.")
         player2_score += 1
-    # else:
-    #     print("Invalid entry. YOU LOSE.")
-    #     sys.exit()
+    else:
+        print("Invalid entry. YOU LOSE.")
+        sys.exit()
     print(f"You score: {player1_score}\nComputer score:{player2_score}")
     Games -= 1
 print(f"HERE IS THE FINAL SCORE:\nYour score:{player1_score}\nComputer score:{player2_score}")
