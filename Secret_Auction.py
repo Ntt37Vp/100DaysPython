@@ -1,6 +1,6 @@
 # Day 9 Output - Secret Auction Program
 import art_works
-import extra_functions
+from extra_functions import clearscreen
 
 print(art_works.auction)
 print("Welcome to the Py Secret Auction Program!")
@@ -13,10 +13,10 @@ while Continue_Bidding:
 
     bids[name] = int(price)
 
-    replay = input("Are there other users to bid? Type yes or no ").lower()
-    if replay == "yes":
+    replay = input("Are there other users to bid? Type Y for yes or N for no ").lower()
+    if replay == "y" or replay == "yes":
         Continue_Bidding = True
-        extra_functions.clearscreen()
+        clearscreen()
     else:
         Continue_Bidding = False
 
