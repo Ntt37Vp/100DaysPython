@@ -1,16 +1,15 @@
 # Project 1 - Py Guess the Number
 from art_works import num_guess, trophy
-import random
+from random import randint
 
 print(num_guess)
-print("Welcome to Py Guess the Number Game!")
-print("I'm thinking of a number between 1 and 100.")
+print("Welcome to Py Guess the Number Game!\nI'm thinking of a number between 1 and 100.")
 
 
 def Play_Game():
-    secret = random.randint(1, 100)
-    is_game_over = False
+    secret = randint(1, 100)
     LIFE = 0
+    is_game_over = False
     level = input("Choose a difficulty. Type 'e' for Easy mode or 'h' for Hard mode: ").lower()
 
     if level == 'e':
