@@ -1,4 +1,4 @@
-# Day 14 Exercise 1
+# Day 14 Exercise 1 ver 1
 from art_works import higher_lower, vs
 from higher_or_lower_data import data
 from random import randint
@@ -50,3 +50,6 @@ compare(Item_A(), Item_B())
 # Track user score
 
 # Loop
+
+# Move Position B to Position A
+
