@@ -2,6 +2,7 @@
 from art_works import higher_lower, vs
 from higher_or_lower_data import data
 import random
+import extra_functions
 
 
 def format_data(account):
@@ -46,6 +47,10 @@ while game_should_continue:
     b_follower_count = account_b["follower_count"]
 
     is_correct = check_answer(guess, a_follower_count, b_follower_count)
+
+    # Clear space
+    extra_functions.clearscreen()
+    print(higher_lower)
 
     # Give feedback to the user
     if is_correct:
