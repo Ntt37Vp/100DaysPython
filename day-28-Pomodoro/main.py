@@ -1,5 +1,7 @@
 from tkinter import *
+from playsound import playsound
 import math
+
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -9,17 +11,47 @@ FONT_NAME = "Courier"
 FONT_SIZE = 35
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+LONG_BREAK_MIN = 10
+reps = 0
+timer = None
 
 
 # ---------------------------- TIMER RESET ------------------------------- #
+def reset_time():
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    title_label.config(text="Timer")
+    check_marks.config(text="")
+    global reps
+    reps = 0
+
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def start_timer():
-    count_down(5 * 60)
+    global reps
+    reps += 1
+
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
+    long_break_sec = LONG_BREAK_MIN * 60
+
+    # if the 1st/3rd/5th/7th rep:
+    # if 8th rep:
+    if reps % 8 == 0:
+        count_down(long_break_sec)
+        title_label.config(text="Chillax", fg=RED)
+        playsound('chime.mp3')
+    elif reps % 2 == 0:
+        count_down(short_break_sec)
+        title_label.config(text="Chill", fg=PINK)
+        playsound('chime.mp3')
+    else:
+        count_down(work_sec)
+        title_label.config(text="WORK", fg=GREEN)
+        playsound('beep.mp3')
 
 
-# ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
+# COUNTDOWN MECHANISM
 def count_down(count):
     count_min = math.floor(count / 60)
     count_sec = count % 60
@@ -28,10 +60,18 @@ def count_down(count):
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
-        window.after(1000, count_down, count - 1)
+        global timer
+        timer = window.after(1000, count_down, count - 1)
+    else:
+        start_timer()
+        marks = ""
+        work_sessions = math.floor(reps/2)
+        for _ in range(work_sessions):
+            marks += "✔"
+        check_marks.config(text=marks)
 
 
-# ---------------------------- UI SETUP ------------------------------- #
+# UI SETUP
 window = Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)  # window background
@@ -47,10 +87,10 @@ canvas.grid(column=1, row=1)
 
 start_button = Button(text="Start", highlightthickness=0, command=start_timer)
 start_button.grid(column=0, row=2)
-reset_button = Button(text="Reset", highlightthickness=0)
+reset_button = Button(text="Reset", highlightthickness=0, command=reset_time)
 reset_button.grid(column=2, row=2)
 
-check_marks = Label(text="✔", fg=GREEN, bg=YELLOW)
+check_marks = Label(fg=GREEN, bg=YELLOW)
 check_marks.grid(column=1, row=3)
 
 window.mainloop()
