@@ -2,7 +2,7 @@ from tkinter import *
 from playsound import playsound
 import math
 
-# ---------------------------- CONSTANTS ------------------------------- #
+# CONSTANTS
 PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
@@ -16,7 +16,7 @@ reps = 0
 timer = None
 
 
-# ---------------------------- TIMER RESET ------------------------------- #
+# TIMER RESET
 def reset_time():
     window.after_cancel(timer)
     canvas.itemconfig(timer_text, text="00:00")
@@ -26,7 +26,7 @@ def reset_time():
     reps = 0
 
 
-# ---------------------------- TIMER MECHANISM ------------------------------- # 
+# TIMER MECHANISM
 def start_timer():
     global reps
     reps += 1
