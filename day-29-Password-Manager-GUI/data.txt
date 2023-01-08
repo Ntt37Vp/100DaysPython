@@ -1,0 +1,10 @@
+site1 | email@email.com | pass1
+site2 | email@email.com | pass2
+site3 | email@email.com | pass3
+site4 | email@email.com | pass4
+site6 | email@email.com | passw6
+site7 | email@email.com | passw7
+facebook | email@email.com | fbpass
+Amazon | email@email.com | passamazon
+ebayy | email@email.com | yiba
+pesbook | email@email.com | 6#3+Gg9bffmn+G
