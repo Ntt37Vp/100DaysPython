@@ -17,4 +17,6 @@ now = dt.datetime.now()
 # month = now.month
 # day_of = now.weekday()
 
-date_of_birth = dt.datetime(year=, month=, day=)
+# create own datetime object
+date_of_birth = dt.datetime(year=2000, month=1, day=1)
+print(date_of_birth)
