@@ -18,11 +18,11 @@ if today in birthdays_dict:
     with open(file_path) as letter_file:
         birthday_person = birthdays_dict[today]
         contents = letter_file.read()
-        new_content = contents.replace("[NAME]", birthday_person["name"])
+        contents = contents.replace("[NAME]", birthday_person["name"])
 
     with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
         connection.login(user=MY_EMAIL, password=MY_PASS)
         connection.sendmail(from_addr=MY_EMAIL,
                             to_addrs=birthday_person["email"],
-                            msg=f"Subject: Happy Birthday!!!\n\n{new_content}")
+                            msg=f"Subject: Happy Birthday!!!\n\n{contents}")
