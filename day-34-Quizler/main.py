@@ -6,7 +6,8 @@ from ui import QuizInterface
 api_url = "https://opentdb.com/api.php"
 parameters = {
     "amount": 10,
-    "type": "boolean"
+    "type": "boolean",
+    "category": 18
 }
 
 response = requests.get(api_url, params=parameters)
@@ -22,7 +23,7 @@ for question in question_data:
 
 
 quiz = QuizBrain(question_bank)
-quiz_ui = QuizInterface()
+quiz_ui = QuizInterface(quiz)
 
 # while quiz.still_has_questions():
 #     quiz.next_question()
