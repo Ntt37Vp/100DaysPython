@@ -3,10 +3,8 @@ import datetime as dt
 import pandas as pd
 import random
 import smtplib
+import constants
 
-
-MY_EMAIL = "nortepedro294@gmail.com"
-MY_PASS = "hgarrnsctzecxxtx"
 
 now = dt.datetime.now()
 today = (now.month, now.day)
@@ -22,7 +20,7 @@ if today in birthdays_dict:
 
     with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
-        connection.login(user=MY_EMAIL, password=MY_PASS)
-        connection.sendmail(from_addr=MY_EMAIL,
+        connection.login(user=constants.MY_EMAIL, password=constants.MY_PASS)
+        connection.sendmail(from_addr=constants.MY_EMAIL,
                             to_addrs=birthday_person["email"],
                             msg=f"Subject: Happy Birthday!!!\n\n{contents}")
