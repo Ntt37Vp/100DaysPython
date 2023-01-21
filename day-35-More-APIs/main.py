@@ -1,4 +1,5 @@
 # OpenWeather 5 Day 3-Hour Forecast data
+import os
 import requests
 import constants
 
@@ -12,8 +13,8 @@ will_rain = False
 
 # Telegram bot
 def telegram_sendtext(bot_message):
-    bot_token = constants.bot_token
-    bot_chatID = constants.bot_chatID
+    bot_token = os.environ.get("BOT_TOKEN")
+    bot_chatID = os.environ.get("BOT_CHATID")
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
 
     tele_response = requests.get(send_text)
