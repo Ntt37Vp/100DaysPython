@@ -37,7 +37,8 @@ delta_percent = (delta / before_yesterday_closing) * 100
 def telegram_sendtext(bot_message):
     bot_token = constants.tg_token
     bot_chatID = constants.tg_bot_chatID
-    send_text = "https://api.telegram.org/bot" + bot_token + "/sendMessage?chat_id=" + bot_chatID + "&parse_mode=Markdown&text=" + bot_message
+    send_text = "https://api.telegram.org/bot" + bot_token + "/sendMessage?chat_id=" + bot_chatID +\
+                "&parse_mode=Markdown&text=" + bot_message
     tele_response = requests.get(send_text)
     return tele_response.json()
 
