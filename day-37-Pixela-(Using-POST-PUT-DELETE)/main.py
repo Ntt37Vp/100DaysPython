@@ -1,11 +1,12 @@
 import requests
 from datetime import datetime
+import os
 
 
 # Creating a user (POST)
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
-PIXELA_USERNAME = "huntertrump"
-PIXELA_TOKEN = "btTeo4TnJ4tvXoNSE4"
+PIXELA_USERNAME = os.environ.get("PIXELA_USERNAME")
+PIXELA_TOKEN = os.environ.get("PIXELA_TOKEN")
 USER_PARAMETERS = {
     "token": PIXELA_TOKEN,
     "username": PIXELA_USERNAME,
@@ -20,12 +21,12 @@ USER_PARAMETERS = {
 # Creating a graph (POST)
 GRAPH_ENDPOINT = f"{PIXELA_ENDPOINT}/{PIXELA_USERNAME}/graphs"
 GRAPH_CONFIG = {
-    "id":"graph3",
-    "name":"Coding-Marathon",
-    "unit":"hours",
-    "type":"float",
-    "color":"shibafu",
-    "timezone":"Asia/Singapore",
+    "id": "graph3",
+    "name": "Coding-Marathon",
+    "unit": "hours",
+    "type": "float",
+    "color": "shibafu",
+    "timezone": "Asia/Singapore",
 }
 HEADERS = {
     "X-USER-TOKEN": PIXELA_TOKEN,
@@ -49,9 +50,9 @@ PLOT_PARAM = {
 
 # Using PUT to update an entry
 DATE_TO_CORRECT = "20230122"
-CORRECTION_ENDPOINT= f"{PLOT_ENDPOINT}/{DATE_TO_CORRECT}"
+CORRECTION_ENDPOINT = f"{PLOT_ENDPOINT}/{DATE_TO_CORRECT}"
 CORRECTION_PARAM = {
-    "quantity":"2",
+    "quantity": "2",
 }
 # response = requests.put(url=CORRECTION_ENDPOINT, json=CORRECTION_PARAM, headers=HEADERS)
 # print(response.status_code)
