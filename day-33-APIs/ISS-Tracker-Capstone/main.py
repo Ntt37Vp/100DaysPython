@@ -3,7 +3,7 @@ from datetime import datetime
 import time
 import os
 import constants
-import smtplib
+# import smtplib
 
 
 MARGIN_ERROR = 5
