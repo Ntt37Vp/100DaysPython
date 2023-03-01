@@ -12,4 +12,5 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 
 driver.get(product_url)
 price = driver.find_element(by="class name", value="a-offscreen").get_attribute("textContent")
+
 print(price)
