@@ -1,0 +1,14 @@
+body {
+    background-color: #EEEEEE;
+    color: #222831;
+}
+
+img {
+    border-radius: 50%;
+    width: 160px;
+}
+
+td,
+th {
+    padding-right: 5px;
+}
