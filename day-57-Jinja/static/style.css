@@ -1,0 +1,18 @@
+body {
+    background-color: #EEEEEE;
+    color: #222831;
+    text-align: center;
+}
+h1 {
+    font-size: 100px;
+}
+h2 {
+    font-size: 80px;
+}
+h3 {
+    font-size: 60px;
+}
+footer p {
+    tex-align: center;
+    font-size: 20px;
+}
