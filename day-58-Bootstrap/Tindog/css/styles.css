@@ -1,0 +1,13 @@
+h1 { 
+    font-family: 'Montserrat-Black', sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+h2 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#title {
+    background-color: #ff4c68;
+}
