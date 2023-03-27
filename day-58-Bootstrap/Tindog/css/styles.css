@@ -20,7 +20,7 @@ h1 {
 
 /* Nav Bar */
 .navbar {
-    padding-bottom: 3.5rem;
+    padding-bottom: 0 0 3.5rem;
 }
 
 .navbar-brand {
@@ -33,4 +33,21 @@ h1 {
 .nav-item {
     padding: 0 18px;
     color: azure;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+/* Download buttons */
+.download-button {
+    margin: 5% 3% 5% 0%;
+}
+
+/* Title Image */
+.title-image {
+    width: 60%;
+    transform: rotate(15deg);
 }
