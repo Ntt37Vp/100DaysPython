@@ -51,3 +51,21 @@ h1 {
     width: 60%;
     transform: rotate(15deg);
 }
+
+#features {
+    background-color: #fff;
+    padding: 7% 15%;
+}
+
+#features h3 {
+    font-family: 'Montserrat-Black';
+    font-weight: bolder;
+}
+#features p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.feature-box {
+    text-align: center;
+    padding: 5%;
+}
