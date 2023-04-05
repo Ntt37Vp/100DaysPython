@@ -89,7 +89,6 @@ h2 {
 }
 
 #testimonials {
-    
     background-color: #ef8172;
     text-align: center;
     color: #fff;
@@ -117,8 +116,10 @@ h2 {
     margin: 20px 20px 50px 50px;
 }
 
-#pricing{
-    padding: 10%;
+#pricing {
+    padding: 100px;
     text-align: center;
-    margin: 100px;
+}
+.pricing-column {
+    padding: 3% 2%;
 }
