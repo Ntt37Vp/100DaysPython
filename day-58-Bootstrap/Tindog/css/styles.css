@@ -50,13 +50,15 @@ h2 {
 
 /* Title Image */
 .title-image {
-    width: 60%;
+    width: 25%;
     transform: rotate(15deg);
+    position: absolute;
 }
 
 #features {
     background-color: #fff;
     padding: 7% 15%;
+    position: relative;
 }
 
 #features h3 {
@@ -81,6 +83,7 @@ h2 {
     color: #ef8172;
     margin-bottom: 1rem;
 }
+
 .fa-check:hover,
 .fa-bullseye:hover,
 .fa-heart:hover {
@@ -99,7 +102,8 @@ h2 {
     border-radius: 100%;
     margin: 10%;
 }
-.carousel-item{
+
+.carousel-item {
     padding: 7% 15%;
 }
 
@@ -108,7 +112,8 @@ h2 {
     text-align: center;
     padding-bottom: 3%;
     font-weight: 800;
-    font-family: 'Montserrat', sans-serif;;
+    font-family: 'Montserrat', sans-serif;
+    ;
 }
 
 .press-img {
@@ -120,6 +125,7 @@ h2 {
     padding: 100px;
     text-align: center;
 }
+
 .pricing-column {
     padding: 3% 2%;
 }
