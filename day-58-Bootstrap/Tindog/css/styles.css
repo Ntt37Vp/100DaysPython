@@ -129,3 +129,39 @@ h2 {
 .pricing-column {
     padding: 3% 2%;
 }
+
+#cta {
+    background-color: #ff4c68;
+    color: #fff;
+    padding: 7% 15%;
+    text-align: center;
+}
+
+.cta-heading{
+    font-family: 'Montserrant-black', sans-serif;
+    font-size: 3.5rem;
+
+}
+
+#footer {
+    padding: 7% 14%;
+    line-height: 1.5em;
+    text-align: center;
+    color: #8f8f8f;
+}
+
+.social-icon {
+    margin: 20px 20px;
+    font-size: 1.5em;
+}
+
+@media (max-width: 1028px) {
+
+    #title {
+        text-align: center;
+    }
+    .title-image {
+        position: static;
+        transform: rotate(0);
+    }
+}
