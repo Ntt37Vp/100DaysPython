@@ -20,7 +20,7 @@
 
         {% for post in all_posts %}
             <div class="post-preview">
-            <a href="#">
+            <a href="{{ url_for('show_post', index=post.id) }}">
                 <h2 class="post-title">
                 {{ post.title }}
                 </h2>
@@ -43,11 +43,3 @@
 </div>
 
 {% include 'footer.html' %}
-
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-</body>
-
-</html>

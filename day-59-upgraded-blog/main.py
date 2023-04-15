@@ -22,6 +22,15 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/<int:index>")
+def show_post(index):
+    requested_post = None
+    for blog_post in posts:
+        if blog_post["id"] == index:
+            requested_post = blog_post
+    return render_template("post.html", post=requested_post)
+
+
 # Run flask app
 if __name__ == "__main__":
     app.run(debug=True)
