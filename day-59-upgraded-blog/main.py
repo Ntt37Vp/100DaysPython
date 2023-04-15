@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 API_Endpoint = "https://api.npoint.io/d2234472e3f912924ebc"
@@ -29,6 +29,13 @@ def show_post(index):
         if blog_post["id"] == index:
             requested_post = blog_post
     return render_template("post.html", post=requested_post)
+
+
+@app.route("/form-entry", methods=["POST"])
+def receive_data():
+    name = request.form["name"]
+    email = request.form["email"]
+    return f"<h1>Message sent. Thanks!</h1><br><p>{name}</p>"
 
 
 # Run flask app
