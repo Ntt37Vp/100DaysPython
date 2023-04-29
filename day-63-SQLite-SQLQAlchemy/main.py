@@ -30,7 +30,8 @@ class Book(db.Model):
         return f"<Book {self.title}>"
 
 
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 
 # CREATE RECORD
