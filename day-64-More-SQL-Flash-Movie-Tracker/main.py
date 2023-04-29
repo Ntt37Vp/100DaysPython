@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 
 # Create TABLE
 class Movie(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(250), unique=True, nullable=False)
     year = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(250), nullable=False)
@@ -30,6 +30,7 @@ class Movie(db.Model):
 
 with app.app_context():
     db.create_all()
+
 
 # Add test movie
 # new_movie = Movie(
@@ -43,6 +44,7 @@ with app.app_context():
 # )
 # db.session.add(new_movie)
 # db.session.commit()
+
 
 @app.route("/")
 def home():
