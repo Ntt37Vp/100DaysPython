@@ -29,13 +29,41 @@ class Movie(db.Model):
     img_url = db.Column(db.String(250), nullable=False)
 
 
+class RateMovieForm(FlaskForm):
+    rating = StringField("Your rating out of 10")
+    review = StringField("Your review.")
+    submit = SubmitField("Done")
+
 with app.app_context():
     db.create_all()
 
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    all_movies = Movie.query.all()
+    return render_template("index.html", movies=all_movies)
+
+
+@app.route("/edit", methods=["GET", "POST"])
+def rate_movie():
+    form = RateMovieForm()
+    movie_id = Movie.query.get("id")
+    movie = Movie.query.get(movie_id)
+    if form.validate_on_submit():
+        movie.rating = float(form.rating.data)
+        movie.review = form.review.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template("edit.html", movie=movie, form=form)
+
+
+@app.route("/delete")
+def delete_movie():
+    movie_id = request.args.get("id")
+    movie = Movie.query.get(movie_id)
+    db.session.delete(movie)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
