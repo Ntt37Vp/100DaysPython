@@ -11,6 +11,11 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap(app)
 
+MOVIE_DB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
+MOVIE_DB_API_KEY = "12345"  # Please export as ENVIR
+MOVIE_DB_INFO_URL = "https://api.themoviedb.org/3/movie"
+MOVIE_DB_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+
 # Create DB
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///movies.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -75,7 +80,22 @@ def delete_movie():
 @app.route("/add", methods=["GET", "POST"])
 def add_movie():
     form = FindMovieForm()
+
+    if form.validate_on_submit():
+        movie_title = form.title.data
+        response = requests.get(MOVIE_DB_SEARCH_URL, params={"api_key": MOVIE_DB_API_KEY, "query": movie_title})
+        data = response.json()["results"]
+        return render_template("select.html", options=data)
+
     return render_template("add.html", form=form)
+
+
+@app.route("/find")
+def find_movie():
+    movie_api_id = request.args.get("id")
+    if movie_api_id:
+        movie_api_url = f"{MOVIE_DB_INFO_URL}/{movie_api_id}"
+
 
 
 if __name__ == '__main__':
