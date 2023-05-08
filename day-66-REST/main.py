@@ -1,3 +1,5 @@
+import random
+
 from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
@@ -29,13 +31,17 @@ def home():
     return render_template("index.html")
     
 
-## HTTP GET - Read Record
+# HTTP GET - Read Record
+@app.route("/random", methods=["GET"])
+def get_random_cafe():
+    cafes = db.session.query(Cafe).all()
+    random_cafe = random.choice(cafes)
 
-## HTTP POST - Create Record
+# HTTP POST - Create Record
 
-## HTTP PUT/PATCH - Update Record
+# HTTP PUT/PATCH - Update Record
 
-## HTTP DELETE - Delete Record
+# HTTP DELETE - Delete Record
 
 
 if __name__ == '__main__':
