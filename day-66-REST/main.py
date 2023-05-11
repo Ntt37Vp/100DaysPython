@@ -25,8 +25,7 @@ class Cafe(db.Model):
     coffee_price = db.Column(db.String(250), nullable=True)
 
     def to_dict(self):
-        dic = {column.name: getattr(self, column.name) for column in self.__table__.columns}
-        return dic
+        return {column.name: getattr(self, column.name) for column in self.__table__.columns}
 
 
 @app.route("/")
@@ -34,23 +33,19 @@ def home():
     return render_template("index.html")
 
 
-# HTTP GET - Read Record
 @app.route("/random", methods=["GET"])
 def get_random_cafe():
     cafes = db.session.query(Cafe).all()
     random_cafe = random.choice(cafes)
-    return "return random cafe"
+    return jsonify(cafe=random_cafe.to_dict())
 
 
-# HTTP POST - Create Record
 @app.route("/all")
 def all_cafes():
     cafes = db.session.query(Cafe).all()
-    cafe_list = [to_dict(cafe) for cafe in cafes]
-    return jsonify(cafe_list)
+    return jsonify(cafes=[cafe.to_dict() for cafe in cafes])
 
 
-# HTTP PUT/PATCH - Update Record
 @app.route("/search")
 def get_cafe_at_location():
     query_location = request.args.get("loc")
@@ -61,13 +56,6 @@ def get_cafe_at_location():
         return jsonify(error={"Not found": "Sorry no cafe at that location"})
 
 
-# HTTP DELETE - Delete Record
-@app.route("/delete")
-def delete_cafe():
-    pass
-
-
-# Add
 @app.route("/add", methods=["POST"])
 def post_new_cafe():
     new_cafe = Cafe(
@@ -87,7 +75,6 @@ def post_new_cafe():
     return jsonify(response={"success": "Successfully added the new cafe."})
 
 
-# Patch vs Put (updating)
 @app.route("/update-price/<int:cafe_id>", methods=["PATCH"])
 def patch_new_price(cafe_id):
     new_price = request.args.get("new_price")
