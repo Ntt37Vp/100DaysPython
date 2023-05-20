@@ -1,4 +1,6 @@
 
+
+
 # CHALLENGES
 # Read the .csv file and store it in a Pandas DataFrame called df. Have a look at the read_csv() documentation and try to provide these column names: ['DATE', 'TAG', 'POSTS']
 # Look at the first and last 5 rows of the DataFrame.
@@ -6,3 +8,9 @@
 # Count the number of entries in each column.
 
 # Solutions
+# import pandas as pd
+# df = pd.read_csv("/content/QueryResults.csv")
+# df.rename(
+#           columns={"m": "DATE",
+#                    "TagName": "TAG",
+#                    'Unnamed: 2':"POSTS"})
