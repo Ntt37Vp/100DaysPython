@@ -36,3 +36,21 @@
 # Let's use Pandas' to_datetime() to convert the entire df['DATE'] column.
 # df.m = pd.to_datetime(df.m)
 # df.head()
+
+# The .pivot() method
+# test_df = pd.DataFrame({'Age': ['Young', 'Young', 'Young', 'Young', 'Old', 'Old', 'Old', 'Old'],
+#                         'Actor': ['Jack', 'Arnold', 'Keanu', 'Sylvester', 'Jack', 'Arnold', 'Keanu', 'Sylvester'],
+#                         'Power': [100, 80, 25, 50, 99, 75, 5, 30]})
+# test_df
+# pivoted_df = test_df.pivot(index='Age', columns='Actor', values='Power')
+# pivoted_df
+
+# Mini-Challenge
+# Can you pivot the df DataFrame so that each row is a date and each column is a programming language? Store the result under a variable called reshaped_df.
+
+# Solution
+    # reshaped_df = df.pivot(index='DATE', columns='TAG', values='POSTS')
+    # reshaped_df.shape
+    # reshaped_df.columns
+    # reshaped_df.head()
+    # reshaped_df.count()
