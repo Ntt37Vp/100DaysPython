@@ -54,3 +54,14 @@
     # reshaped_df.columns
     # reshaped_df.head()
     # reshaped_df.count()
+
+# Dealing with NaN Values
+# In this case, we don't want to drop the rows that have a NaN value. Instead, we want to substitute the number 0 for each NaN value in the DataFrame. We can do this with the .fillna() method.
+
+    # reshaped_df.fillna(0, inplace=True)
+    # The inplace argument means that we are updating reshaped_df. Without this argument we would have to write something like this:
+    # reshaped_df = reshaped_df.fillna(0)
+
+# We can also check if there are any NaN values left in the entire DataFrame with this line:
+    # reshaped_df.isna().values.any()
+    
