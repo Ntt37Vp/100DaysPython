@@ -34,8 +34,8 @@
 # When we type check the contents of this cell, we see that we are not dealing with a date object, but rather with a string.
 # type(df['m'][1])
 # Let's use Pandas' to_datetime() to convert the entire df['DATE'] column.
-# df.m = pd.to_datetime(df.m)
-# df.head()
+    # df.m = pd.to_datetime(df.m)
+    # df.head()
 
 # The .pivot() method
 # test_df = pd.DataFrame({'Age': ['Young', 'Young', 'Young', 'Young', 'Old', 'Old', 'Old', 'Old'],
