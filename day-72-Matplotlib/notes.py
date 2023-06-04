@@ -64,4 +64,8 @@
 
 # We can also check if there are any NaN values left in the entire DataFrame with this line:
     # reshaped_df.isna().values.any()
-    
+
+# Data Visualisation
+    # reshaped_df = df_new.pivot(index='DATE', columns='TAG', values='POSTS')
+    # plt.plot(reshaped_df.index, reshaped_df.java)
+    # plt.show()
