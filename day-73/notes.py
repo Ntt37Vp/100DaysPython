@@ -28,3 +28,7 @@
         # sets_by_year['set_num'].tail()
 
     # Challenge: Show the number of LEGO releases on a line chart using Matplotlib.
+
+# The Pandas .agg() function
+    # Format: DataFrame.agg(func=None, axis=0, *args, **kwargs)
+    # themes_per_year = sets.groupby('year').agg({'theme_id': pd.Series.nunique})
